@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import Shipping from './components/Shipping/Shipping';
 import PrivateRoute from './routes/PrivateRoute';
+import ConfirmOrders from './components/ConfirmOrders/ConfirmOrders';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       children: [
         {
           path: '/',
-          loader: () => fetch('products.json'),
+          // loader: () => fetch('http://localhost:5000/products'),
           element: <Shop></Shop>
         },
         {
@@ -35,6 +36,11 @@ function App() {
         {
           path: 'shipping',
           element: <PrivateRoute><Shipping></Shipping></PrivateRoute>
+        },
+        
+        {
+          path: '/confirmOrder',
+          element: <PrivateRoute><ConfirmOrders></ConfirmOrders></PrivateRoute>
         },
         {
           path:'about',
